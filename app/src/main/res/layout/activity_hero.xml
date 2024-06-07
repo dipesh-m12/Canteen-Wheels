@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="4dp"
+    tools:context=".Hero">
+
+    <ImageView
+        android:id="@+id/dosaimage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="4dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dosa" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_logout"
+        android:elevation="10dp"
+        android:paddingHorizontal="5dp"
+        android:text="@string/logout"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dosaimage" />
+
+    <TextView
+        android:id="@+id/userInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_register"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="3dp"
+        android:text="Email"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/dosaimage"
+        app:layout_constraintTop_toTopOf="@+id/logout" />
+
+    <Button
+        android:id="@+id/cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/button_register"
+        android:drawableStart="@drawable/baseline_add_shopping_cart_24"
+        android:drawableTint="@color/white"
+        android:paddingHorizontal="4dp"
+        android:text="Cart"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:scaleY="0.8"
+        android:scaleX="0.8"
+        app:layout_constraintEnd_toEndOf="@+id/logout"
+        app:layout_constraintBottom_toBottomOf="@+id/dosaimage" />
+
+    <Button
+        android:id="@+id/vegbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/veg_btn_bg"
+        android:drawableStart="@drawable/foodtype_indicator"
+        android:drawableTint="@color/veg_food"
+        android:paddingStart="4dp"
+        android:scaleX="0.9"
+        android:scaleY="0.9"
+        android:text="Veg"
+        android:textColor="@drawable/veg_text_color"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dosaimage" />
+
+    <Button
+        android:id="@+id/nonvegbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/nonveg_btn_bg"
+        android:drawableStart="@drawable/foodtype_indicator"
+        android:drawableTint="@color/nonveg_food"
+        android:paddingHorizontal="4dp"
+        android:scaleX="0.9"
+        android:scaleY="0.9"
+        android:text="Non veg"
+        android:textColor="@drawable/nonveg_text_color"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toEndOf="@+id/vegbtn"
+        app:layout_constraintTop_toTopOf="@+id/vegbtn" />
+
+    <ProgressBar
+        android:id="@+id/progressbar_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="196dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_user"
+        android:layout_width="406dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingTop="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchbar_user"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <SearchView
+        android:id="@+id/searchbar_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/border"
+        android:backgroundTint="#A6A2A2"
+        android:elevation="10dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search ..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vegbtn" />
+</androidx.constraintlayout.widget.ConstraintLayout>

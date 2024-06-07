@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:layout_gravity="center_horizontal"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="5dp"
+    android:layout_marginHorizontal="10dp"
+    android:background="@drawable/card_view_template"
+    android:elevation="10dp">
+
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="6dp"
+        android:scaleType="fitXY"
+        android:layout_centerVertical="true"
+        android:background="@drawable/border"
+        android:padding="3dp"
+        android:id="@+id/itemview_image"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OrderId:"
+        android:layout_marginStart="20dp"
+        android:id="@+id/orderid"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="6dp"
+        android:paddingStart="10dp"
+        />
+
+
+    <TextView
+        android:id="@+id/itemview_orderid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="10dp"
+        android:layout_toRightOf="@+id/orderid"
+        android:background="@drawable/button_register"
+        android:backgroundTint="#454344"
+        android:gravity="center"
+        android:paddingStart="10dp"
+        android:text="Order Id"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Item:"
+        android:layout_toEndOf="@id/itemview_image"
+        android:layout_below="@id/itemview_orderid"
+        android:id="@+id/name"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="7dp"
+        android:paddingStart="10dp"
+        />
+
+    <TextView
+        android:id="@+id/itemview_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:background="@drawable/button_register"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="6dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@+id/name"
+        android:layout_below="@id/itemview_orderid"
+        android:paddingStart="10dp"
+        android:text="item name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total:"
+        android:drawableEnd="@drawable/baseline_currency_rupee_24"
+        android:paddingStart="10dp"
+        android:layout_marginTop="2dp"
+        android:textScaleX="0.8"
+        android:layout_below="@id/itemview_name"
+        android:layout_toRightOf="@id/itemview_type"
+        android:id="@+id/total"/>
+
+    <TextView
+        android:id="@+id/itemview_total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemview_name"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@id/total"
+        android:paddingStart="10dp"
+        android:background="@drawable/splash_screen_gradient"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="total" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type:"
+        android:textScaleX="0.8"
+        android:layout_below="@id/itemview_name"
+        android:layout_toEndOf="@id/itemview_image"
+        android:layout_marginBottom="2dp"
+        android:paddingStart="10dp"
+        android:id="@+id/type"/>
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Type"
+        android:background="@drawable/button_register"
+        android:gravity="center"
+        android:layout_marginHorizontal="7dp"
+        android:layout_marginStart="2dp"
+        android:layout_below="@id/itemview_name"
+        android:layout_toEndOf="@id/type"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginBottom="2dp"
+        android:id="@+id/itemview_type"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status:"
+        android:layout_toEndOf="@id/itemview_image"
+        android:layout_below="@id/type"
+        android:id="@+id/status"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="7dp"
+        android:paddingStart="10dp"
+        />
+
+    <TextView
+        android:id="@+id/itemview_status"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemview_type"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="2dp"
+        android:layout_toEndOf="@id/status"
+        android:background="@drawable/button_register"
+        android:backgroundTint="@color/nonveg_food"
+
+        android:paddingStart="20dp"
+        android:text="status"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Completed:"
+        android:layout_toEndOf="@id/itemview_image"
+        android:layout_below="@id/status"
+        android:id="@+id/completed"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="3dp"
+        android:paddingStart="10dp"
+        />
+
+
+    <TextView
+        android:id="@+id/itemview_completed"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemview_status"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_toEndOf="@id/completed"
+        android:background="@drawable/button_register"
+        android:backgroundTint="@color/nonveg_food"
+
+        android:paddingStart="20dp"
+        android:text="status"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+
+
+
+
+
+</RelativeLayout>

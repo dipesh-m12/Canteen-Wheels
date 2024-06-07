@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gradient_start_color">#FF4081</color>
+    <color name="gradient_end_color">#3F51B5</color>
+    <color name="title_bar_register">#9C27B0</color>
+    <color name="gray">#E8B7DC</color>
+    <color name="veg_food">#5BD152</color>
+    <color name="nonveg_food">#C60F2A</color>
+</resources>

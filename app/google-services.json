@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "289996182753",
+    "project_id": "canteenwheels-8b859",
+    "storage_bucket": "canteenwheels-8b859.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289996182753:android:0cc9cacc13aefeb6d7d3a0",
+        "android_client_info": {
+          "package_name": "com.example.canteenwheels"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1V4tnW_trgf-gKrkMQkLrsYOkMmbLssQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
