@@ -11,22 +11,23 @@
     android:background="@drawable/card_view_template"
     android:elevation="10dp"
     android:outlineAmbientShadowColor="@color/veg_food">
+
         <ImageView
-            android:layout_width="68dp"
-            android:layout_height="68dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginStart="6dp"
-            android:scaleType="fitXY"
+            android:id="@+id/itemview_image"
+            android:layout_width="95dp"
+            android:layout_height="88dp"
             android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginRight="5dp"
             android:background="@drawable/border"
             android:padding="3dp"
-            android:id="@+id/itemview_image"/>
+            android:scaleType="fitXY" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Item:"
+            android:text=""
             android:layout_toEndOf="@id/itemview_image"
             android:id="@+id/name"
             android:layout_marginBottom="2dp"
@@ -36,24 +37,24 @@
 
         <TextView
             android:id="@+id/itemview_name"
-            android:layout_width="match_parent"
+            android:layout_width="222dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="0dp"
-            android:background="@drawable/button_register"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginTop="6dp"
             android:layout_marginHorizontal="15dp"
+
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="6dp"
             android:layout_marginBottom="10dp"
             android:layout_toRightOf="@+id/name"
             android:paddingStart="10dp"
-            android:text="item name" />
+            android:text="item name"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Price:"
+            android:text=""
             android:drawableEnd="@drawable/baseline_currency_rupee_24"
             android:paddingStart="10dp"
             android:layout_marginTop="2dp"
@@ -63,22 +64,21 @@
 
         <TextView
             android:id="@+id/itemview_price"
-            android:layout_width="match_parent"
+            android:layout_width="201dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/itemview_name"
+            android:layout_marginLeft="2dp"
             android:layout_marginTop="2dp"
+
             android:layout_toRightOf="@id/price"
-            android:paddingStart="10dp"
-            android:background="@drawable/splash_screen_gradient"
-            android:gravity="center_horizontal"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="Price" />
+            android:text="Price"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Type:"
+            android:text=""
             android:layout_below="@id/itemview_name"
             android:layout_toEndOf="@id/itemview_image"
             android:layout_marginBottom="2dp"
@@ -90,6 +90,7 @@
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="Type"
+            android:visibility="gone"
             android:background="@drawable/button_register"
             android:gravity="center"
             android:layout_marginHorizontal="7dp"
@@ -101,6 +102,36 @@
             android:layout_marginBottom="2dp"
             android:paddingStart="10dp"
             android:id="@+id/itemview_type"/>
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/itemview_price"
+            android:layout_alignEnd="@+id/itemview_name"
+            android:layout_marginTop="-5dp"
+            android:layout_marginEnd="3dp"
+            android:background="@drawable/buyoption"
+            android:drawableStart="@drawable/baseline_add_24"
+            android:drawableTint="@color/white"
+            android:paddingEnd="8dp"
+            android:text="Add"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/itemview_name"
+            android:layout_alignEnd="@+id/itemview_name"
+            android:layout_marginTop="-7dp"
+            android:layout_marginEnd="11dp"
+            android:drawablePadding="1dp"
+            android:background="@drawable/veg_btn_bg"
+            android:drawableStart="@drawable/foodtype_indicator"
+            android:drawableTint="@color/veg_food"
+            android:text="" />
 
 
         <!--    <TextView-->

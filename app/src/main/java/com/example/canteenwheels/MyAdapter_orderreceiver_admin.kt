@@ -1,11 +1,14 @@
 package com.example.canteenwheels
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
@@ -44,6 +47,18 @@ class MyAdapter_orderreceiver_admin(private val context: Context
             quantity.text = cartItem.quantity
             status.text = cartItem.status
             completed.text = cartItem.completed
+
+
+            status.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.nonveg_food))
+            completed.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.nonveg_food))
+
+            if (cartItem.status == "confirmed") {
+                status.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.veg_food))
+            }
+            if(cartItem.completed=="true"){
+                completed.backgroundTintList=
+                    ColorStateList.valueOf(ContextCompat.getColor(context,R.color.veg_food))
+            }
 
             Picasso.get()
                 .load(cartItem.image)

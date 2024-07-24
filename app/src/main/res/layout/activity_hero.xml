@@ -8,25 +8,10 @@
     android:padding="4dp"
     tools:context=".Hero">
 
-    <ImageView
-        android:id="@+id/dosaimage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="4dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dosa" />
-
     <Button
         android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/btn_logout"
         android:elevation="10dp"
@@ -35,47 +20,47 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/dosaimage" />
+        tools:layout_editor_absoluteY="32dp" />
 
     <TextView
         android:id="@+id/userInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/button_register"
         android:paddingHorizontal="4dp"
         android:paddingVertical="3dp"
         android:text="Email"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/dosaimage"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/logout" />
 
     <Button
         android:id="@+id/cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="4dp"
         android:background="@drawable/button_register"
         android:drawableStart="@drawable/baseline_add_shopping_cart_24"
         android:drawableTint="@color/white"
         android:paddingHorizontal="4dp"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
         android:text="Cart"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:scaleY="0.8"
-        android:scaleX="0.8"
         app:layout_constraintEnd_toEndOf="@+id/logout"
-        app:layout_constraintBottom_toBottomOf="@+id/dosaimage" />
+        app:layout_constraintTop_toBottomOf="@+id/logout" />
 
     <Button
         android:id="@+id/vegbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/veg_btn_bg"
         android:drawableStart="@drawable/foodtype_indicator"
         android:drawableTint="@color/veg_food"
@@ -86,7 +71,7 @@
         android:textColor="@drawable/veg_text_color"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dosaimage" />
+        app:layout_constraintTop_toBottomOf="@+id/userInfo" />
 
     <Button
         android:id="@+id/nonvegbtn"
@@ -138,14 +123,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="4dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/border"
         android:backgroundTint="#A6A2A2"
         android:elevation="10dp"
         android:iconifiedByDefault="false"
         android:queryHint="Search ..."
+        android:layout_marginBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vegbtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

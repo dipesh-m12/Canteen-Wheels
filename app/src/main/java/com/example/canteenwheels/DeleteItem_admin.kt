@@ -23,6 +23,12 @@ class DeleteItem_admin : AppCompatActivity() {
     private lateinit var itemId: String
     private lateinit var itemImage: String
 
+    override fun onPause() {
+        super.onPause()
+        finish()
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityDeleteItemAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -79,6 +85,7 @@ class DeleteItem_admin : AppCompatActivity() {
                             val intent = Intent(this@DeleteItem_admin,View_Menu_admin::class.java)
                             startActivity(intent)
                         }, 400)
+
                     }
                     .addOnFailureListener { e ->
                         Log.e(TAG, "Error deleting image: $e")

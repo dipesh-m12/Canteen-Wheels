@@ -71,6 +71,16 @@ class veg_foods : Fragment(), MyAdapterAdmin.OnItemClickListener {
 
         return rootView
     }
+    fun updateData(newData: List<FoodItemData>) {
+        foodItemList.clear()
+        foodItemList.addAll(newData)
+        Log.d("veg_foods","$newData")
+        val vegItemCountTextView = requireView().findViewById<TextView>(R.id.veg_item_count)
+        vegItemCountTextView.text=newData.size.toString()
+        adapter.notifyDataSetChanged()
+        searchView.clearFocus()
+
+    }
 
     private fun updateItemCount(query: String) {
         val filteredItemCount = if (query.isEmpty()) {
@@ -93,28 +103,31 @@ class veg_foods : Fragment(), MyAdapterAdmin.OnItemClickListener {
             .orderBy("time", Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener { documents ->
-
+                foodItemList.clear()
                 for (document in documents) {
 
                     if (documents.isEmpty) {
                         Toast.makeText(requireContext(), "No veg items found", Toast.LENGTH_LONG).show()
+                        return@addOnSuccessListener
                     }
-                    val type = document.getString("type")
+                    val type = document.getString("type") ?: ""
                     if (type == "Veg") {
                         val id = document.id
                         val imageURL = document.getString("image") ?: ""
                         val price = (document.getLong("price") ?: 0).toInt()
                         val name = document.getString("name") ?: ""
                         val time = document.getDate("time").toString()
-
                         val foodItem = FoodItemData(id, imageURL, price, type, name, time)
                         foodItemList.add(foodItem)
-                        Log.d("veg_foods", "Added item to foodItemList: $foodItem")
                     }
-                    val vegItemCount = foodItemList.size
-                    val vegItemCountTextView = requireView().findViewById<TextView>(R.id.veg_item_count)
-                    vegItemCountTextView.text = vegItemCount.toString()
+
                 }
+                Log.d("veg_foods", "Added item to foodItemList: $foodItemList")
+
+                val vegItemCount = foodItemList.size
+                val vegItemCountTextView = requireView().findViewById<TextView>(R.id.veg_item_count)
+                vegItemCountTextView.text = vegItemCount.toString()
+
                 adapter.notifyDataSetChanged() // Notify adapter of data change
                 progressBar.visibility = View.GONE
             }

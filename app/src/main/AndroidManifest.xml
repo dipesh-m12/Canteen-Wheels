@@ -6,8 +6,6 @@
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
-
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,56 +13,74 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.CanteenWheels"
         tools:targetApi="31">
         <activity
-            android:name=".admin_orderConfirmation"
+            android:name=".WalkThrough1"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBAR."
             android:exported="false" />
+        <activity
+            android:name=".admin_orderConfirmation"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".OrderReceiver_admin"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".viewCart_user"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".confirm_order"
             android:exported="false"
             android:label="Order Item"
-            android:parentActivityName=".Hero" />
+            android:parentActivityName=".Hero"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".cart_user"
             android:exported="false"
             android:label="Cart"
-            android:parentActivityName=".Hero" />
+            android:parentActivityName=".Hero"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".DeleteItem_admin"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".View_Menu_admin"
             android:exported="false"
             android:label="MENU"
-            android:parentActivityName=".Admin_Config" />
+            android:parentActivityName=".Admin_Config"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Admin_Config"
             android:exported="false"
             android:label="Canteen  Add Items!"
-            android:parentActivityName=".OrderReceiver_admin" />
+            android:parentActivityName=".OrderReceiver_admin"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Hero"
             android:exported="false"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Login"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBAR." />
         <activity
             android:name=".Register"
             android:exported="false"
-            android:theme="@style/Theme.CanteenWheels" />
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBAR." />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/NoActionBAR.">
+<!--            //Use theme.AppCompat-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -11,13 +11,23 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.canteenwheels.databinding.ActivityViewMenuAdminBinding
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.firestore
 
 class View_Menu_admin : AppCompatActivity() {
     private lateinit var binding: ActivityViewMenuAdminBinding
     private var currentToast: Toast? = null // Variable to hold the current toast
+    private val foodItemList = mutableListOf<FoodItemData>()
 
     // Define debounce threshold for button clicks
-    private val debounceThreshold = 500L // milliseconds
+//    private val debounceThreshold = 500L // milliseconds
+
+    override fun onPause() {
+        super.onPause()
+        finish()
+
+    }
 
 
     override fun onStart() {
@@ -36,11 +46,11 @@ class View_Menu_admin : AppCompatActivity() {
 //        val db = Firebase.firestore
 //        val collectionRef = db.collection("food_details")
 
-
+        fetchDataFromFirestore()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        disableButtons()
-        enableButtonsAfterDelay()//debounce after delay
+//        disableButtons()
+//        enableButtonsAfterDelay()//debounce after delay
 
 //        collectionRef.orderBy("time", Query.Direction.DESCENDING)
 //            .get()
@@ -65,15 +75,13 @@ class View_Menu_admin : AppCompatActivity() {
             .commit()
 
         binding.vegBtn.setOnClickListener {
-            disableButtons()
-            replaceFragment(veg_foods())
-            enableButtonsAfterDelay()
+            val fragment = supportFragmentManager.findFragmentById(R.id.fragment_container_view_tag) as?  veg_foods
+            fragment?.updateData(filterVegItems())
         }
 
         binding.nonvegBtn.setOnClickListener {
-            disableButtons()
-            replaceFragment(nonveg_foods())
-            enableButtonsAfterDelay()
+            val fragment = supportFragmentManager.findFragmentById(R.id.fragment_container_view_tag) as? veg_foods
+            fragment?.updateData(filterNonVegItems())
         }
 
         // Apply padding to the main view to prevent content from being obscured by system bars
@@ -83,17 +91,17 @@ class View_Menu_admin : AppCompatActivity() {
             insets
         }
     }
-    private fun disableButtons() {
-        binding.vegBtn.isEnabled = false
-        binding.nonvegBtn.isEnabled = false
-    }
+//    private fun disableButtons() {
+//        binding.vegBtn.isEnabled = false
+//        binding.nonvegBtn.isEnabled = false
+//    }
 
-    private fun enableButtonsAfterDelay() {
-        Handler(Looper.getMainLooper()).postDelayed({
-            binding.vegBtn.isEnabled = true
-            binding.nonvegBtn.isEnabled = true
-        }, debounceThreshold)
-    }
+//    private fun enableButtonsAfterDelay() {
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            binding.vegBtn.isEnabled = true
+//            binding.nonvegBtn.isEnabled = true
+//        }, debounceThreshold)
+//    }
 
     private fun showToast(message: String) {
         // Check if there's a current toast, cancel it before showing the new one
@@ -102,11 +110,44 @@ class View_Menu_admin : AppCompatActivity() {
         currentToast = Toast.makeText(this@View_Menu_admin, message, Toast.LENGTH_SHORT)
         currentToast?.show()
     }
+    private fun fetchDataFromFirestore() {
+        val db = Firebase.firestore
+        val collectionRef = db.collection("food_details")
 
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_container_view_tag, fragment)
-        fragmentTransaction.commit()
+        collectionRef
+            .orderBy("time", Query.Direction.DESCENDING)
+            .get()
+            .addOnSuccessListener { documents ->
+                foodItemList.clear()
+                for (document in documents) {
+                    val id = document.id
+                    val imageURL = document.getString("image") ?: ""
+                    val price = (document.getLong("price") ?: 0).toInt()
+                    val name = document.getString("name") ?: ""
+                    val time = document.getDate("time").toString()
+                    val type = document.getString("type") ?: ""
+
+                    val foodItem = FoodItemData(id, imageURL, price, type, name, time)
+                    foodItemList.add(foodItem)
+                }
+//                updateFragmentWithFilteredData("veg") // Initially show veg items
+            }
+            .addOnFailureListener { exception ->
+                Log.e("view_admin", "Error fetching documents: $exception")
+            }
     }
+    private fun filterVegItems(): List<FoodItemData> {
+        return foodItemList.filter { it.type == "Veg" }
+    }
+
+    private fun filterNonVegItems(): List<FoodItemData> {
+        return foodItemList.filter { it.type == "Non-veg" }
+    }
+
+//    private fun replaceFragment(fragment: Fragment) {
+//        val fragmentManager = supportFragmentManager
+//        val fragmentTransaction = fragmentManager.beginTransaction()
+//        fragmentTransaction.replace(R.id.fragment_container_view_tag, fragment)
+//        fragmentTransaction.commit()
+//    }
 }

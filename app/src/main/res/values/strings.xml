@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">CanteenWheels</string>
+    <string name="app_name">SwiftCanteen</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-    <string name="register">Register</string>
-    <string name="canteen_wheels">Canteen Wheels</string>
+    <string name="register">Create Account</string>
+    <string name="canteen_wheels">Swift Canteen</string>
     <string name="submit">Submit</string>
     <string name="login">Login</string>
     <string name="logout">Log out</string>

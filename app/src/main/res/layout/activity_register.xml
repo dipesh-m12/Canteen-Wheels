@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@drawable/login_gradient"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_screen_gradient"
     android:paddingHorizontal="4dp"
     android:paddingVertical="4dp"
     tools:context=".Register">
@@ -21,7 +21,7 @@
         android:gravity="center"
         android:paddingVertical="4dp"
         android:text="@string/register"
-        android:textColor="@color/white"
+        android:textColor="#0f172a"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -137,7 +137,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.684"
         app:layout_constraintStart_toStartOf="@+id/submit_btn_register"
         app:layout_constraintTop_toBottomOf="@+id/submit_btn_register"
         app:layout_constraintVertical_bias="1.0" />
@@ -147,13 +147,14 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:layout_marginTop="16dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/nav_to_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/submit_btn_register"
         app:layout_constraintVertical_bias="0.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,14 +22,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         auth = Firebase.auth
         val currentUser = auth.currentUser
-        supportActionBar?.hide()
         Handler(mainLooper).postDelayed({                                                            //this 2
             if(currentUser!=null){
                 val intent = Intent(this@MainActivity, Hero::class.java)
                 startActivity(intent)
                 finish()
             }else{
-                val intent = Intent(this@MainActivity, Register::class.java)
+                val intent = Intent(this@MainActivity, WalkThrough1::class.java)
                 startActivity(intent)
                 finish()
             }

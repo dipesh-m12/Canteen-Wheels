@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
+import org.w3c.dom.Text
 import java.util.Locale
 
 data class FoodCard(
@@ -67,6 +69,7 @@ class MyAdapter_hero_user(private val listener: OnItemClickListener) : RecyclerV
         private val typeTextView: TextView = itemView.findViewById(R.id.itemview_type)
         private val priceTextView: TextView = itemView.findViewById(R.id.itemview_price)
         private val imageView: ImageView = itemView.findViewById(R.id.itemview_image)
+        private val text :TextView=itemView.findViewById(R.id.tag)
 
         fun bind(item: FoodCard) {
 
@@ -86,9 +89,15 @@ class MyAdapter_hero_user(private val listener: OnItemClickListener) : RecyclerV
             } else {
                 Log.e("Picasso", "Empty imageURL for item: ${item.image}")
             }
+            text.setCompoundDrawableTintList(ContextCompat.getColorStateList(itemView.context, R.color.veg_food))
+            text.setBackgroundResource(R.drawable.veg_btn_bg)
             nameTextView.text=item.name
             typeTextView.text=item.type
             priceTextView.text=item.price.toString()
+            if(item.type=="Non-veg"){
+                text.setCompoundDrawableTintList(ContextCompat.getColorStateList(itemView.context, R.color.nonveg_food))
+                text.setBackgroundResource(R.drawable.nonveg_btn_bg)
+            }
         }
     }
 }
